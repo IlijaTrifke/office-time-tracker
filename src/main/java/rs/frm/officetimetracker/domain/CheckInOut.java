@@ -13,17 +13,16 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "check_in")
-public class CheckIn {
+@Table(name = "check_in_out")
+public class CheckInOut {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
     private LocalDateTime checkInTime;
-    private Double latitude;
-    private Double longitude;
+    private LocalDateTime checkOutTime;
     private String device;
+
+    @ManyToOne
+    private User user;
 }
